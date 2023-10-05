@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de contacto</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>Registro</h1>
+
+    <h2 id="alert"></h2>
+
+    <form id="formulario">
+      <h3>Nombres:</h3>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        placeholder="ingrese nombres..."
+        required
+      />
+
+      <h3>Apellidos:</h3>
+      <input
+        type="text"
+        id="apellidos"
+        name="apellidos"
+        placeholder="ingrese apellidos..."
+        required
+      />
+
+      <h3>Tipo de documento:</h3>
+      <select id="document">
+        <option value="cedula">Cedula</option>
+        <option value="cedula_extrangera">Cedula extrangera</option>
+        <option value="targeta_identidad">targeta de identidad</option>
+        <option value="pasaporte">Pasaporte</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      <h3>Numero de documento:</h3>
+      <input
+        type="number"
+        id="ndd"
+        name="Numero_documento"
+        placeholder="58846317448"
+        required
+      />
+
+      <h3>Genero:</h3>
+      <input type="radio" id="hombre" name="genero" value="hombre" checked />
+      Hombre <input type="radio" id="mujer" name="genero" value="mujer" /> Mujer
+      <input type="radio" id="otro" name="genero" value="otro" /> Otro
+
+      <h3>Telefono:</h3>
+      <input
+        type="number"
+        id="telefono"
+        name="telefono"
+        placeholder="3205687642"
+        required
+      />
+
+      <h3>Correo:</h3>
+      <input
+        type="email"
+        id="correo"
+        name="correo"
+        placeholder="ejemplo@gmail.com"
+        required
+      />
+
+      <h3>Fecha de nacimiento:</h3>
+      <input type="date" id="fecha" name="fecha" required />
+    </form>
+
+    <button onclick="registar()">Registrar</button>
+
+    <script>
+      let arr = [];
+
+      let today = new Date();
+      let dd = today.getDate();
+      let mm = today.getMonth() + 1; //January is 0!
+      let yyyy = today.getFullYear() - 18;
+
+      if (dd < 10) {
+        dd = "0" + dd;
+      }
+
+      if (mm < 10) {
+        mm = "0" + mm;
+      }
+
+      today = yyyy + "-" + mm + "-" + dd;
+      document.getElementById("fecha").setAttribute("max", today);
+
+      function registar() {
+        let nombre = document.getElementById("nombre").value;
+
+        let apellidos = document.getElementById("apellidos").value;
+
+        let tdd = document.getElementById("document").value;
+
+        let ndd = document.getElementById("ndd").value;
+
+        let genero = document.querySelector(
+          'input[name="genero"]:checked'
+        ).value;
+
+        let telefono = document.getElementById("telefono").value;
+
+        let correo = document.getElementById("correo").value;
+
+        let fdn = document.getElementById("fecha").value;
+
+        if (nombre === "") {
+          document.getElementById("alert").textContent =
+            "Por favor ingrese un nombre, está vacio";
+        } else if (apellidos === "") {
+          document.getElementById("alert").textContent =
+            "Por favor ingrese un apellido, está vacio";
+        } else if (tdd === "") {
+          document.getElementById("alert").textContent =
+            "Por favor seleccione su tipo de documento, está vacio";
+        } else if (ndd === "") {
+          document.getElementById("alert").textContent =
+            "Por favor ingrese un numero de documento, está vacio";
+        }else if(ndd.toString().length<9){
+          document.getElementById("alert").textContent =
+          `por favor ingrese numero de documento valido (mas de 9 digitos) Usted digito ${ndd.toString().length} caracteres`
+        }else if (genero === "") {
+          document.getElementById("alert").textContent =
+            "Por favor seleccione una de las 3 opciones, está vacio";
+        } else if (telefono === "") {
+          document.getElementById("alert").textContent =
+            "Por favor ingrese su numero telefonico, está vacio";
+        }else if(telefono.toString().length<9){
+          document.getElementById("alert").textContent =
+          `por favor ingrese numero de telefono valido (mas de 9 digitos) Usted digito ${telefono.toString().length} caracteres`
+        } else if (correo === "") {
+          document.getElementById("alert").textContent =
+            "Por favor ingrese un correo, está vacio";
+        } else if (fdn === "") {
+          document.getElementById("alert").textContent =
+            "Por favor seleccione su fecha de nacimiento, está vacio";
+        } else {
+          const rule = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.com$");
+
+          if (!rule.test(correo)) {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese correo valido (correo@dominio.com)";
+          } else {
+            let usuario = {
+              nombre: nombre,
+              apellidos: apellidos,
+              tipo_documento: tdd,
+              numero_documento: ndd,
+              genero: genero,
+              telefono: telefono,
+              correo: correo,
+              fdn: fdn,
+            };
+            arr.push(usuario);
+
+            document.getElementById("formulario").reset();
+
+            console.log(arr);
+          }
+        }
+        setTimeout(() => {
+          document.getElementById("alert").textContent = "";
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>

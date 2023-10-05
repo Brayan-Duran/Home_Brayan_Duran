@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+}
+
+.T{
+    background-color: gray;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+}
+.cld {
+  width: 20vw;
+  height: 95%;
+  background-color: white;
+  border-radius: 3%;
+  margin: 3%;
+}
+
+.m {
+  margin: 0;
+  height: 13vh;
+  background-color: #f06c6c;
+  border-radius: 3%;
+  background-size: cover;
+  background-position: center;
+  
+}
+.m1 {
+  background-image: url(gojo.jfif);
+
+}
+
+.m2{
+  background-image: url(gura.png);
+  
+}
+
+.m3{
+  background-image: url(fyj.png);
+  
+}
+.m4{
+  background-image: url(lf.jpg);
+}
+.m5{
+  background-image: url(Komi.jfif);
+  
+}
+.m6{
+  background-image: url(bocchi.jfif);
+  
+}
+.m7{
+  background-image: url(spí.png);
+  
+}
+.m8{
+  background-image: url(ce.jfif);
+  
+}
+.m9{
+  background-image: url(mk.jfif);
+  
+}
+.m10{
+  background-image: url(ura.jfif);
+  
+}
+.m11{
+  background-image: url(mi.jfif);
+  
+}
+.m12{
+  background-image: url(Gear\ 5.jfif);
+  
+}
+
+.args{
+  background-color:#dbe7f0;
+  height: 3vh;
+  width: 0.8vw;
+  margin-left: 13%;
+  border-radius: 40%;
+}
+.arg{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.arg2{
+  display: flex;
+  flex-direction: row;
+}
+ h1{
+  color: rgb(0, 255, 0);
+    font-size: 300% ;
+     margin: 0;
+     text-shadow: 3px 3px 3px  black;
+ }
+.mes {
+  margin-left: 5%;
+  border-radius: 10%;
+}
+
+.nm {
+  font-size: 5vh;
+  color: rgb(0, 255, 0);
+  font-weight: bolder;
+  margin: 0;
+  text-shadow: 3px 3px 3px  black;
+}
+
+.tbl {
+  width: 100%;
+}
+th {
+  line-height: 300%;
+}
+
+.g {
+  color: gray;
+}
+
+td {
+  text-align: center;
+  font-weight: bold;
+}
+
+.clm1 {
+  padding-left: 2%;
+}
+
+.clm2 {
+  text-align: center;
+}
+
+@media (max-width: 1250px) {
+  .T {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .args{
+    width: 1vw;
+  }
+  .cld {
+
+    height: 95%;
+    background-color: aliceblue;
+    border-radius: 3%;
+    margin: 3%;
+    width: 30vw;
+  }
+  
+}
+
+@media (max-width: 900px) {
+    .T {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .args{
+      width: 1.4vw;
+    }
+    .cld {
+  
+      height: 95%;
+      background-color: aliceblue;
+      border-radius: 3%;
+      margin: 3%;
+      width: 45vw;
+    }
+    
+  }
+
+  @media (max-width: 600px) {
+    .T {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      justify-items: center;
+    }
+    .args{
+      width: 2vw;
+    }
+    .cld {
+      height: 95%;
+      background-color: aliceblue;
+      border-radius: 3%;
+      margin: 3%;
+      width: 70vw;
+    }
+    
+  }
