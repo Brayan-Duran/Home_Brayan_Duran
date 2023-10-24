@@ -198,12 +198,13 @@
             arr[indice].correo = document.getElementById("correo").value;
             arr[indice].fdn = document.getElementById("fecha").value;
             document.getElementById("formulario").reset();
+            op = false;
           }
           setTimeout(() => {
             document.getElementById("alert").textContent = "";
           }, 5000);
 
-          document.getElementById("formulario").reset();
+          
         } else {
           if (nombre === "") {
             document.getElementById("alert").textContent =
@@ -266,7 +267,7 @@
         document.getElementById("t").innerHTML = "";
         console.log(arr);
         rellenar();
-        op = false;
+        
       }
 
       function rellenar() {

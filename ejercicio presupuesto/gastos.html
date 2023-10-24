@@ -10,9 +10,10 @@
   <body> 
     <h1>Gasto Semanal</h1>
     <div class="pdr">
-      <div class="alert"> 
+      <div class="alert" id="alert"> 
         <p style="font-weight:900;">Por favor ingrese presupuesto</p>
-        <input type="text" placeholder="Ingrese su presupuesto">
+        <input type="number" id="pre" placeholder="Ingrese su presupuesto">
+        <button class="button1" onclick="agpr()">Agregar</button>
         
       </div>
       <div class="caja">
@@ -24,13 +25,14 @@
           <input type="text" id="nombre" placeholder="Nombre Gasto">
           <h4>Cantidad:</h4>
           <input type="number" id="cantidad" placeholder="Cantidad en $"><br>
-          <button>Agregar</button>
+          <button class="button1" onclick="agregar()">Agregar</button>
         </div>
 
         <div class="lis">
           <h2>Listado</h2>
-          <p></p>
-          <p></p>
+          <div id="list"></div>
+          <p id="rpre1"></p>
+          <p id="rpre2"></p>
         </div>
       </div>
     </div>
