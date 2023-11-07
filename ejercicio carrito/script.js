@@ -10,10 +10,10 @@ let productos = [
   },
   {
     id: 2,
-    nombre: "Figura All Might de chill",
+    nombre: "Figura All Might de BNH",
     estrellas: "⭐⭐⭐⭐⭐",
     precio: 1000,
-    img: "all.jpg",
+    img: "sas.jpg",
   },
   {
     id: 3,
