@@ -13,14 +13,14 @@ let productos = [
     nombre: "Figura All Might de chill",
     estrellas: "⭐⭐⭐⭐⭐",
     precio: 1000,
-    img: "All.jpg",
+    img: "all.jpg",
   },
   {
     id: 3,
     nombre: "Figura Goku ssj3",
     estrellas: "⭐⭐⭐⭐⭐",
     precio: 600,
-    img: "Goku.jpg",
+    img: "goku.jpg",
   },
   {
     id: 4,
