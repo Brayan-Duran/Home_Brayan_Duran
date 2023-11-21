@@ -1,0 +1,37 @@
+body{
+  margin: 0;
+  background-image: url(fon.jpg);
+}
+
+.ctrl{
+  position: relative;
+  align-items: center;
+  border: solid;
+  border-color: black;
+  width: 10%;
+  left: 10%;
+  background-color: snow;
+}
+
+h1{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+form{
+  border: solid;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: palevioletred;
+  border-color: antiquewhite;
+  border-radius: 10px;
+  margin-top: 3%;
+}
+
+input{
+   width:100%;
+}
+   
+ 

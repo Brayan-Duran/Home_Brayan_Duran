@@ -49,9 +49,11 @@
       />
 
       <h3>Genero:</h3>
-      <input type="radio" id="hombre" name="genero" value="hombre" checked />
-      Hombre <input type="radio" id="mujer" name="genero" value="mujer" /> Mujer
-      <input type="radio" id="otro" name="genero" value="otro" /> Otro
+      <select id="genero">
+        <option value="hombre">Hombre</option>
+        <option value="mujer">Mujer</option>
+        <option value="otro">Otro</option>
+      </select>
 
       <h3>Telefono:</h3>
       <input
@@ -75,10 +77,41 @@
       <input type="date" id="fecha" name="fecha" required />
     </form>
 
-    <button onclick="registar()">Registrar</button>
+    <button class="button1" onclick="registar()">Registrar</button>
+
+    <table class="tbl">
+      <thead>
+        <tr class="the">
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Tipo de documento</th>
+          <th>Numero de documento</th>
+          <th>Genero</th>
+          <th>Telefono</th>
+          <th>Correo</th>
+          <th>Fecha de nacimiento</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody id="t">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
 
     <script>
       let arr = [];
+      let op = null;
+      let indice = null;
 
       let today = new Date();
       let dd = today.getDate();
@@ -105,9 +138,7 @@
 
         let ndd = document.getElementById("ndd").value;
 
-        let genero = document.querySelector(
-          'input[name="genero"]:checked'
-        ).value;
+        let genero = document.getElementById("genero").value;
 
         let telefono = document.getElementById("telefono").value;
 
@@ -115,42 +146,105 @@
 
         let fdn = document.getElementById("fecha").value;
 
-        if (nombre === "") {
-          document.getElementById("alert").textContent =
-            "Por favor ingrese un nombre, está vacio";
-        } else if (apellidos === "") {
-          document.getElementById("alert").textContent =
-            "Por favor ingrese un apellido, está vacio";
-        } else if (tdd === "") {
-          document.getElementById("alert").textContent =
-            "Por favor seleccione su tipo de documento, está vacio";
-        } else if (ndd === "") {
-          document.getElementById("alert").textContent =
-            "Por favor ingrese un numero de documento, está vacio";
-        }else if(ndd.toString().length<9){
-          document.getElementById("alert").textContent =
-          `por favor ingrese numero de documento valido (mas de 9 digitos) Usted digito ${ndd.toString().length} caracteres`
-        }else if (genero === "") {
-          document.getElementById("alert").textContent =
-            "Por favor seleccione una de las 3 opciones, está vacio";
-        } else if (telefono === "") {
-          document.getElementById("alert").textContent =
-            "Por favor ingrese su numero telefonico, está vacio";
-        }else if(telefono.toString().length<9){
-          document.getElementById("alert").textContent =
-          `por favor ingrese numero de telefono valido (mas de 9 digitos) Usted digito ${telefono.toString().length} caracteres`
-        } else if (correo === "") {
-          document.getElementById("alert").textContent =
-            "Por favor ingrese un correo, está vacio";
-        } else if (fdn === "") {
-          document.getElementById("alert").textContent =
-            "Por favor seleccione su fecha de nacimiento, está vacio";
-        } else {
-          const rule = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.com$");
+        const rule = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.com$");
 
-          if (!rule.test(correo)) {
+        if (op === true) {
+          if (document.getElementById("nombre").value === "") {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese un nombre, está vacio";
+          } else if (document.getElementById("apellidos").value === "") {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese un apellido, está vacio";
+          } else if (document.getElementById("document").value === "") {
+            document.getElementById("alert").textContent =
+              "Por favor seleccione su tipo de documento, está vacio";
+          } else if (document.getElementById("ndd").value === "") {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese un numero de documento, está vacio";
+          } else if (ndd.toString().length < 9) {
+            document.getElementById(
+              "alert"
+            ).textContent = `Por favor ingrese un numero de documento con mas de 9 digitos, la contidad de digitos que ingreso son ${
+              ndd.toString().length
+            }`;
+          } else if (document.getElementById("genero").value === "") {
+            document.getElementById("alert").textContent =
+              "Por favor seleccione una de las 3 opciones, está vacio";
+          } else if (document.getElementById("telefono").value === "") {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese su numero telefonico, está vacio";
+          } else if (telefono.toString().length < 9) {
+            document.getElementById(
+              "alert"
+            ).textContent = `Por favor ingrese un numero telefonico con mas de 9 digitos, la contidad de digitos que ingreso son ${
+              telefono.toString().length
+            }`; 
+          } else if (document.getElementById("correo").value === "") {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese un correo, está vacio";
+          } else if (!rule.test(correo)) {
             document.getElementById("alert").textContent =
               "Por favor ingrese correo valido (correo@dominio.com)";
+          } else if (document.getElementById("fecha").value === "") {
+            document.getElementById("alert").textContent =
+              "Por favor seleccione su fecha de nacimiento, está vacio";
+          } else {
+            arr[indice].nombre = document.getElementById("nombre").value;
+            arr[indice].apellidos = document.getElementById("apellidos").value;
+            arr[indice].tdd = document.getElementById("document").value;
+            arr[indice].numero_documento = document.getElementById("ndd").value;
+            arr[indice].genero = document.getElementById("genero").value;
+            arr[indice].telefono = document.getElementById("telefono").value;
+            arr[indice].correo = document.getElementById("correo").value;
+            arr[indice].fdn = document.getElementById("fecha").value;
+            document.getElementById("formulario").reset();
+            op = false;
+          }
+          setTimeout(() => {
+            document.getElementById("alert").textContent = "";
+          }, 5000);
+
+          
+        } else {
+          if (nombre === "") {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese un nombre, está vacio";
+          } else if (apellidos === "") {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese un apellido, está vacio";
+          } else if (tdd === "") {
+            document.getElementById("alert").textContent =
+              "Por favor seleccione su tipo de documento, está vacio";
+          } else if (ndd === "") {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese un numero de documento, está vacio";
+          } else if (ndd.toString().length < 9) {
+            document.getElementById(
+              "alert"
+            ).textContent = `Por favor ingrese un numero de documento con mas de 9 digitos, la contidad de digitos que ingreso son ${
+              ndd.toString().length
+            }`;
+          } else if (genero === "") {
+            document.getElementById("alert").textContent =
+              "Por favor seleccione una de las 3 opciones, está vacio";
+          } else if (telefono === "") {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese su numero telefonico, está vacio";
+          } else if (telefono.toString().length < 9) {
+            document.getElementById(
+              "alert"
+            ).textContent = `Por favor ingrese un numero telefonico con mas de 9 digitos, la contidad de digitos que ingreso son ${
+              telefono.toString().length
+            }`;
+          } else if (correo === "") {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese un correo, está vacio";
+          } else if (!rule.test(correo)) {
+            document.getElementById("alert").textContent =
+              "Por favor ingrese correo valido (correo@dominio.com)";
+          } else if (fdn === "") {
+            document.getElementById("alert").textContent =
+              "Por favor seleccione su fecha de nacimiento, está vacio";
           } else {
             let usuario = {
               nombre: nombre,
@@ -165,14 +259,87 @@
             arr.push(usuario);
 
             document.getElementById("formulario").reset();
-
-            console.log(arr);
           }
+          setTimeout(() => {
+            document.getElementById("alert").textContent = "";
+          }, 5000);
         }
-        setTimeout(() => {
-          document.getElementById("alert").textContent = "";
-        }, 5000);
+        document.getElementById("t").innerHTML = "";
+        console.log(arr);
+        rellenar();
+        
       }
+
+      function rellenar() {
+        let frag = document.createDocumentFragment();
+
+        arr.forEach((item, index) => {
+          let tr = document.createElement("tr");
+          let td1 = document.createElement("td");
+          let td2 = document.createElement("td");
+          let td3 = document.createElement("td");
+          let td4 = document.createElement("td");
+          let td5 = document.createElement("td");
+          let td6 = document.createElement("td");
+          let td7 = document.createElement("td");
+          let td8 = document.createElement("td");
+          let td9 = document.createElement("td");
+          let editar = document.createElement("button");
+          let eliminar = document.createElement("button");
+          editar.textContent = "✍️";
+          editar.addEventListener("click", () => {
+            edita(item, index);
+          });
+          eliminar.textContent = "🗑️";
+          eliminar.addEventListener("click", () =>{
+            elimina(index);
+          });
+          td1.textContent = item.nombre;
+          td2.textContent = item.apellidos;
+          td3.textContent = item.tipo_documento;
+          td4.textContent = item.numero_documento;
+          td5.textContent = item.genero;
+          td6.textContent = item.telefono;
+          td7.textContent = item.correo;
+          td8.textContent = item.fdn;
+          td9.appendChild(editar);
+          td9.appendChild(eliminar);
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tr.appendChild(td3);
+          tr.appendChild(td4);
+          tr.appendChild(td5);
+          tr.appendChild(td6);
+          tr.appendChild(td7);
+          tr.appendChild(td8);
+          tr.appendChild(td9);
+          frag.appendChild(tr);
+          document.getElementById("t").appendChild(frag);
+        });
+      }
+
+      function edita(r, i) {
+        op = true;
+        indice = i;
+        console.log(r);
+
+        document.getElementById("nombre").value = r.nombre;
+        document.getElementById("apellidos").value = r.apellidos;
+        document.getElementById("document").value = r.tipo_documento;
+        document.getElementById("ndd").value = r.numero_documento;
+        document.getElementById("genero").value = r.genero;
+        document.getElementById("telefono").value = r.telefono;
+        document.getElementById("correo").value = r.correo;
+        document.getElementById("fecha").value = r.fdn;
+      }
+
+      function elimina(i) {
+        index=i
+        arr.splice(index, 1);
+        document.getElementById("t").innerHTML = "";
+        rellenar();
+      }
+      
     </script>
   </body>
 </html>

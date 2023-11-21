@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veterinaria</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <h1>
+      ¿Tu mascota requiere atencion? <br />
+      ¡Agenda una cita!
+    </h1>
+
+    <div class="ctrl">
+      <h2>Citas :</h2>
+
+      <input type="radio" id="abierto" name="cita" value="abierto" />
+      <label for="abierto">Abierto</label>
+      <br />
+      <input type="radio" id="terminado" name="cita" value="terminado" />
+      <label for="terminado">Terminado</label>
+      <br />
+      <input type="radio" id="cancelada" name="cita" value="cancelada" />
+      <label for="cancelada">Cancelada</label>
+    </div>
+
+    <form id="formulario">
+      <h2>Ingrese la informacion requerida</h2>
+      <hr />
+
+      <h3>Nombre mascota</h3>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        placeholder="ingrese el nombre de la mascota"
+        required
+      />
+
+      <h3>Propietario</h3>
+      <input
+        type="text"
+        id="propietario"
+        name="propietario"
+        placeholder="ingrese el nombre del propietario"
+        required
+      />
+
+      <h3>Telefono</h3>
+      <input
+        type="text"
+        id="telefono"
+        name="telefono"
+        placeholder="ingrese numero de contacto"
+        required
+      />
+
+      <h3>Tipo de mascota</h3>
+      <select id="tipo">
+        <option value="perro">Perro</option>
+        <option value="gato">Gato</option>
+        <option value="gallina">Gallina</option>
+        <option value="axolote">axolote</option>
+        <option value="t-rex">T-rex</option>
+      </select>
+
+      <h3>Fecha de nacimiento:</h3>
+      <input type="date" id="fecha" name="fecha" required />
+
+      <h3>Fecha de nacimiento:</h3>
+      <input type="time" id="tiempo" name="tiempo" required />
+
+      <h3>Motivo de la consulta</h3>
+      <textarea name="motivo" id="motivo" cols="40" rows="10" placeholder="añade una pequeña descripcion"></textarea>
+      
+    </form>
+  </body>
+</html>
