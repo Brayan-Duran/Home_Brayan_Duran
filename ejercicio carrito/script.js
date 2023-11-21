@@ -194,8 +194,12 @@ function z() {
 
 function agpr(item) {
 
+
   let w = carrito.findIndex((element) => element.id == item.id ); 
   
+
+  console.log(item);
+
 
   if (w != -1) {
     carrito[w].cantidad = carrito[w].cantidad + 1;
@@ -210,6 +214,7 @@ function agpr(item) {
 
     carrito.push(itemt);
   }
+  console.log(carrito);
   document.getElementById("t").innerHTML = "";
   rellenar();
 }
