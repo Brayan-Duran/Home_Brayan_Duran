@@ -1,37 +1,263 @@
-body{
+body {
   margin: 0;
   background-image: url(fon.jpg);
-}
 
-.ctrl{
-  position: relative;
-  align-items: center;
-  border: solid;
-  border-color: black;
-  width: 10%;
-  left: 10%;
-  background-color: snow;
-}
-
-h1{
   display: flex;
-  text-align: center;
-  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-form{
+header {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+header p {
+  margin: 0;
+  text-align: center;
+  font-size: larger;
+}
+
+header img {
+  width: 75px;
+  height: 75px;
+  border-radius: 250px;
+}
+
+.pdr {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+}
+
+/* inputs --------------------------------------------------*/
+.container {
+  text-align: center;
+  border: solid;
+  width: 30vw;
+  background-color: rgb(112, 216, 199);
+  position: fixed;
+  top: 100px;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  display: block;
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #e74c3c;
+}
+
+@media (max-width: 900px) {
+  .radio-group {
+    flex-direction: column;
+  }
+}
+/* inputs --------------------------------------------------*/
+
+h2 {
+  font-family: cursive;
+}
+
+form {
   border: solid;
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background-color: palevioletred;
+  background-color: rgb(112, 216, 199);
   border-color: antiquewhite;
   border-radius: 10px;
-  margin-top: 3%;
+  margin-top: 23%;
+  display: none;
+  margin-bottom: 2%;
 }
 
-input{
-   width:100%;
+@media (max-width: 1200px) {
+  .pdr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+  }
+
+  form {
+    margin-top: 10% !important;
+  }
+
+  .container {
+    text-align: center;
+    border: solid;
+    width: 40vw;
+    background-color: rgb(112, 216, 199);
+    position: relative;
+    top: 50%;
+    margin-top: 30%;
+  }
+  .card-abierto {
+    width: 100%;
+    background-color: #3498db;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr)!important;
+  }
+
+  .carDiv {
+    width: 30vw!important;
+    margin: 5%;
+    border: double;
+    border-color: rgba(128, 128, 128, 0.493);
+    background-color: rgb(112, 216, 199);
+  }
 }
-   
- 
+
+@media (max-width: 900px) {
+  .card-abierto {
+    width: 100%;
+    background-color: #3498db;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr)!important;
+  }
+
+  .carDiv {
+    width: 40vw!important;
+    margin: 5%;
+    border: double;
+    border-color: rgba(128, 128, 128, 0.493);
+    background-color: rgb(112, 216, 199);
+  }
+}
+
+@media (max-width: 600px) {
+  .card-abierto {
+    width: 100%;
+    background-color: #3498db;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr)!important;
+    justify-items: center!important;
+  }
+
+  .carDiv {
+    width: 80vw!important;
+    margin: 5%;
+    border: double;
+    border-color: rgba(128, 128, 128, 0.493);
+    background-color: rgb(112, 216, 199);
+  }
+}
+
+input {
+  width: 100%;
+}
+
+.but {
+  font-size: 25px;
+  background-color: #87ceeb;
+  border-color: #fff;
+  border-radius: 10px;
+}
+
+.footer {
+  background-color: black;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  font-weight: bolder;
+  font-size: large;
+}
+
+/* cards ----------------------------------------*/
+
+.card-abierto {
+  width: 100%;
+  background-color: #3498db;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.carDiv {
+  width: 20vw;
+  margin: 5%;
+  border: double;
+  border-color: rgba(128, 128, 128, 0.493);
+  background-color: rgb(112, 216, 199);
+}
+
+.carImg {
+  width: 100%;
+  height: 200px;
+}
+
+.letra {
+  font-weight: bold;
+  font-family: cursive;
+  margin-bottom: 1%;
+}
+
+.orden {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* cards ----------------------------------------*/
+
+/* alert ---------------------------------------------*/
+/* Estilos para la alerta */
+.alert-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Color de fondo */
+  color: white; /* Color del texto */
+  border-radius: 5px; /* Bordes redondeados */
+  transform: translateY(-50%);
+  transition: transform 0.5s;
+}
+
+/* Estilos para el botón de cerrar la alerta */
+.close-btn {
+  color: rgb(0, 0, 0); /* Color del texto del botón */
+  font-weight: bold; /* Texto en negrita */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+/* alert ---------------------------------------------*/
