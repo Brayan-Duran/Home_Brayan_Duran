@@ -1,12 +1,18 @@
 let citas = [];
 let img = "";
+
 let imgg = "";
+
+
 
 let citasTer = [];
 let citasCan = [];
 
+
 let actu = null;
 let indice = null;
+
+
 
 // fecha--------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
@@ -62,7 +68,9 @@ function mostrarcard3() {
   cards(3);
 }
 
+D
 // -------------------------------------------------------------------
+
 function registrar(event) {
   event.preventDefault();
   let nombre = document.getElementById("nombre").value;
@@ -78,6 +86,7 @@ function registrar(event) {
   let tiempo = document.getElementById("tiempo").value;
 
   let motivo = document.getElementById("motivo").value;
+
 
   if (actu === true) {
     if (document.getElementById("nombre").value === "") {
@@ -216,6 +225,11 @@ function editar(a, i) {
 
 // -------------------------------------------------------------------
 
+
+  
+
+
+
 function cards(cita) {
   let citasM = [];
 
@@ -299,7 +313,10 @@ function cards(cita) {
 
     let button = document.createElement("button");
     button.textContent = "Editar cita";
+
     button.setAttribute("class", "but");
+
+
     button.addEventListener("click", () => {
       editar(item, index);
     });
@@ -355,17 +372,26 @@ function cards(cita) {
         select.appendChild(option3);
         break;
 
+
+
+  
+
       case 2:
         select.appendChild(option2);
         select.appendChild(option1);
         select.appendChild(option3);
         break;
 
+
+
+  
+
       case 3:
         select.appendChild(option3);
         select.appendChild(option1);
         select.appendChild(option2);
         break;
+
 
       default:
         break;

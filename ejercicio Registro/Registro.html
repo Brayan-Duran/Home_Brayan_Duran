@@ -268,6 +268,7 @@
         console.log(arr);
         rellenar();
         
+<<<<<<< HEAD
       } 
 
       function rellenar() {
@@ -318,6 +319,58 @@
         });
       }
 
+=======
+      }
+
+      function rellenar() {
+        let frag = document.createDocumentFragment();
+
+        arr.forEach((item, index) => {
+          let tr = document.createElement("tr");
+          let td1 = document.createElement("td");
+          let td2 = document.createElement("td");
+          let td3 = document.createElement("td");
+          let td4 = document.createElement("td");
+          let td5 = document.createElement("td");
+          let td6 = document.createElement("td");
+          let td7 = document.createElement("td");
+          let td8 = document.createElement("td");
+          let td9 = document.createElement("td");
+          let editar = document.createElement("button");
+          let eliminar = document.createElement("button");
+          editar.textContent = "✍️";
+          editar.addEventListener("click", () => {
+            edita(item, index);
+          });
+          eliminar.textContent = "🗑️";
+          eliminar.addEventListener("click", () =>{
+            elimina(index);
+          });
+          td1.textContent = item.nombre;
+          td2.textContent = item.apellidos;
+          td3.textContent = item.tipo_documento;
+          td4.textContent = item.numero_documento;
+          td5.textContent = item.genero;
+          td6.textContent = item.telefono;
+          td7.textContent = item.correo;
+          td8.textContent = item.fdn;
+          td9.appendChild(editar);
+          td9.appendChild(eliminar);
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tr.appendChild(td3);
+          tr.appendChild(td4);
+          tr.appendChild(td5);
+          tr.appendChild(td6);
+          tr.appendChild(td7);
+          tr.appendChild(td8);
+          tr.appendChild(td9);
+          frag.appendChild(tr);
+          document.getElementById("t").appendChild(frag);
+        });
+      }
+
+>>>>>>> fe00ac230fed1940d7a33571e69ee1938ccc7d90
       function edita(r, i) {
         op = true;
         indice = i;
