@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de compras</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <div class="pdr">
+    <div class="h">
+      <div>⛩ TiendaZomber ⛩</div>
+      <div onmouseover="x()" >🛒</div>
+    </div>
+    <div class="inicio">
+      <div class="caja">
+        <h2>Compra algo nuevo</h2>
+      <input type="text" placeholder="¿Que te gustaria comprar?      🔍">
+      </div>
+    </div>
+    <div class="promo">
+      <div>🎉 12 tipos de productos</div>
+      <div>👕 ropa personalizada 👖 </div>
+      <div>📨 envios a todo colombia</div>
+    </div>
+    <h1 class="h1">Productos a la venta</h1>
+    <div class="ctrl">
+      <div id="card">
+     
+      </div>
+    </div>
+    <div class="footer">
+      <div>
+        <p>Para tu Negocio</p>
+        <p>Conviertete en Instructor</p>
+        <p>Aplicaciones Móviles</p>
+        <p>Soporte</p>
+      </div>
+        
+      <div>
+        <p>¿Quienes Somos?</p>
+        <p>Empleo</p>
+        <p>Blog</p>
+      </div>
+    </div>
+    <div id="car" style="display: none;" onmouseleave="z()">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Descartar</th>
+          </tr>
+        </thead>
+        <tbody id="t">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+     <button class="but" onclick="vaciar()">Eliminar</button>
+    </div>
+  </div>
+</body>
+</html>

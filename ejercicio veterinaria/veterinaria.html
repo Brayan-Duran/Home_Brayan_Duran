@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veterinaria</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <header>
+      <img src="doc.jpg" />
+      <p>
+        ¿Tu mascota requiere atencion? <br />
+        ¡Agenda una cita!
+      </p>
+      <button class="but" onclick="mostrar()">Agendar cita</button>
+    </header>
+
+
+    <div class="alert-container" id="alert">
+      <div class="alert" id="myAlert">
+        <span>¡ALERTA!</span>
+        <span class="close-btn" onclick="cerrarAlerta()">X</span>
+        <p id="textalert"></p>
+      </div>
+    </div>
+
+    <div class="alert-containe" id="aler">
+      <div class="aler" id="myAler">
+        <span>¡Carga Exitosa!</span>
+        <span class="close-btn" onclick="cerrarAlert()">X</span>
+        <p id="textaler"></p>
+      </div>
+    </div>
+
+
+
+    <div class="pdr">
+      <div>
+        <div class="container">
+          <h2>Citas :</h2>
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="abierto"
+              name="cita"
+              value="abierto"
+              onclick=" mostrarcard1()"
+            />
+            <label for="abierto">Abierto</label>
+            <br />
+            <input
+              type="radio"
+              id="terminado"
+              name="cita"
+              value="terminado"
+              onclick=" mostrarcard2()"
+            />
+            <label for="terminado">Terminado</label>
+            <br />
+            <input
+              type="radio"
+              id="cancelada"
+              name="cita"
+              value="cancelada"
+              onclick=" mostrarcard3()"
+            />
+            <label for="cancelada">Cancelada</label>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form id="formulario">
+          <h2>Ingrese la informacion requerida</h2>
+          <hr />
+
+          <h3>Nombre mascota</h3>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="ingrese el nombre de la mascota"
+            required
+          />
+
+          <h3>Propietario</h3>
+          <input
+            type="text"
+            id="propietario"
+            name="propietario"
+            placeholder="ingrese el nombre del propietario"
+            required
+          />
+
+          <h3>Telefono</h3>
+          <input
+            type="number"
+            id="telefono"
+            name="telefono"
+            placeholder="ingrese numero de contacto"
+            required
+          />
+
+          <h3>Tipo de mascota</h3>
+          <select id="tipo">
+            <option value="perro">Perro</option>
+            <option value="gato">Gato</option>
+            <option value="gallina">Gallina</option>
+            <option value="axolote">axolote</option>
+            <option value="t-rex">T-rex</option>
+          </select>
+
+          
+          <h3>Fecha de la cita:</h3>
+          <input type="date" id="fecha" name="fecha" required />
+
+          <h3>Horario de atencion:</h3>
+          <input type="time" id="tiempo" name="tiempo" required />
+
+          <h3>Motivo de la consulta</h3>
+          <textarea
+            name="motivo"
+            id="motivo"
+            cols="40"
+            rows="5"
+            placeholder="añade una pequeña descripcion"
+          ></textarea>
+
+          <button class="but" onclick="registrar(event)">Enviar Cita</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="card-abierto" id="card-abierto"></div>
+
+    <div class="footer">
+      © Copyright 2023 Todos los derechos reservados | Ejercicio Veterinaria
+    </div>
+  </body>
+</html>
