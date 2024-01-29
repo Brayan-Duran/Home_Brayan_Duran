@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turnador</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./funtion.js"></script>
+  </head>
+  <body>
+    <div class="pdr">
+      <div class="tele">
+        <div class="turn">
+          <h1 style="color: rgb(255, 255, 255)">Turnador Eléctrico</h1>
+          <div class="number" id="turno">
+            <span id="display-turno" style="color: rgb(255, 255, 255)">1</span>
+          </div>
+          <button class="but" onclick="former()">Anterior</button>
+          <button class="but" onclick="next()">Siguiente</button>
+        </div>
+      </div>
+
+
+      <div class="ticket">
+        <div class="ticket-edge-top-left"></div>
+        <div class="ticket-edge-top-right"></div>
+        <div class="ticket-edge-bottom-left"></div>
+        <div class="ticket-edge-bottom-right"></div>
+        <div class="ticket-punches"></div>
+        <div class="ticket-punches-right"></div>
+        <div class="ticket-inner">
+          <div class="ticket-headline">
+            <span class="tex">Su turno ha sido generado exitosamente.</span><br />
+            <span class="tex">Su número de turno es:</span>
+          </div>
+          <div class="ticket-star">
+            <div class="fa fa-star-o"></div>
+          </div>
+          <div class="ticket-admit">
+            <span id="tiket"></span>
+          </div>
+          <div class="ticket-numbers">Clarence</div>
+          <div class="ticket-numbers second">Ticket</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gene">
+      <button class="button" onclick="generarTurno()">Generar Turno</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Número de Turno</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-turnos-body"></tbody>
+      </table>
+    </div>
+
+    
+  </body>
+</html>

@@ -40,7 +40,7 @@ h3{
     color: antiquewhite;
 }
 
-button{
+.button1{
     padding: 15px;
     border: none;
     border-radius: 5px;
@@ -70,4 +70,26 @@ h2{
     margin-top: 3%;
     
 }
+
+.tbl{
+    margin-top: 5%;
+    border-spacing: 0;
+    width: 95vw;
+    background-color: #00fff08f;
+  }
+  th{
+    line-height: 250%; 
+   }
+
+   td{
+    line-height: 250%; 
+   }
+
+   .tbl tbody tr:nth-child(even) {
+    background-color: rgb(226, 223, 223);
+   }
     
+   .the{
+    background-color: palevioletred; 
+    color: white; 
+   }
